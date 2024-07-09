@@ -34,9 +34,10 @@ How Am I Useful Over Other Options?
 
 I’m here to provide you with a secure, trustworthy, and user-friendly virtual assistant experience. Choose S.A.N.A, and enjoy the benefits of a virtual assistant that truly respects your privacy and autonomy.
 
-#Installation
-Dependencies
+# Installation
+Dependencies:
     python 3.x
+    
 extract the zip file and run Sana.bat.
 
 
