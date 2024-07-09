@@ -33,3 +33,10 @@ How Am I Useful Over Other Options?
     Innovative and Adaptable: The collaborative nature of my development ensures that I stay ahead of the curve with innovative features and capabilities tailored to a wide range of users.
 
 I’m here to provide you with a secure, trustworthy, and user-friendly virtual assistant experience. Choose S.A.N.A, and enjoy the benefits of a virtual assistant that truly respects your privacy and autonomy.
+
+#Installation
+Dependencies
+    python 3.x
+extract the zip file and run Sana.bat.
+
+
