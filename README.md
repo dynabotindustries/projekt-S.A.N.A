@@ -1,10 +1,10 @@
-# projekt-S.A.N.A
+## projekt-S.A.N.A
 Projekt-S.A.N.A (Secure, Autonomous, Non-intrusive Assistant) is a community-driven, open-source virtual assistant designed with a strong focus on privacy, transparency, and autonomy. It is built to serve users without compromising their data or monitoring their activities, setting a new standard for virtual assistants.
 
-What S.A.N.A has to say about itself:
+# What S.A.N.A has to say about itself:
 Hello! I'm S.A.N.A (Secure, Autonomous, Non-intrusive Assistant), an open-source virtual assistant designed to prioritize your privacy and respect your autonomy. I'm here to help you with your tasks and queries without compromising your data or monitoring your activities.
 
-Why Choose Me?
+# Why Choose Me?
 
     Community-Driven Development:
         Open Source: My code is freely available for anyone to inspect, contribute to, and improve. This means you can trust that I'm built with the highest standards of transparency and security.
@@ -26,7 +26,7 @@ Why Choose Me?
         Minimal Data Usage: I’m designed to operate efficiently without requiring extensive access to your personal information or device resources.
         User-First Approach: I prioritize your convenience and security, ensuring a smooth and respectful interaction experience.
 
-How Am I Useful Over Other Options?
+# How Am I Useful Over Other Options?
 
     Enhanced Security: With no centralized data collection, the risk of data breaches and misuse is significantly reduced, unlike many other virtual assistants.
     Community Trust: Being open-source and community-driven means I’m built on a foundation of trust and continuous improvement.
