@@ -26,6 +26,7 @@ if exist %marker_file% (
     pip install pywhatkit
     pip install wikipedia-api
     pip install wolframalpha
+    pip install pyttsx3
 
     REM Create the marker file to indicate setup is done
     echo Setup completed on %date% at %time% > %marker_file%
