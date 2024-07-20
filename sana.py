@@ -1,10 +1,13 @@
 import sys
+import os
 from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout, QLineEdit, 
-                             QPushButton, QTextEdit, QLabel)
+                             QPushButton, QTextEdit, QLabel, QMessageBox)
 from PyQt5.QtGui import QPixmap
 import wikipedia
 import wolframalpha
 import pyttsx3
+import speech_recognition as sr
+import pywhatkit
 
 # Function to search Wikipedia
 def search_wikipedia(query):
@@ -25,12 +28,48 @@ def query_wolfram_alpha(query, app_id):
     except Exception:
         return "No results found on Wolfram Alpha."
 
+class LoginWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setWindowTitle('Login')
+        self.setGeometry(300, 300, 300, 200)
+        layout = QVBoxLayout()
+
+        self.usernameEdit = QLineEdit(self)
+        self.usernameEdit.setPlaceholderText('Username')
+        layout.addWidget(self.usernameEdit)
+
+        self.passwordEdit = QLineEdit(self)
+        self.passwordEdit.setPlaceholderText('Password')
+        self.passwordEdit.setEchoMode(QLineEdit.Password)
+        layout.addWidget(self.passwordEdit)
+
+        self.loginButton = QPushButton('Login', self)
+        self.loginButton.clicked.connect(self.checkCredentials)
+        layout.addWidget(self.loginButton)
+
+        self.setLayout(layout)
+
+    def checkCredentials(self):
+        username = self.usernameEdit.text()
+        password = self.passwordEdit.text()
+        if username == 'test' and password == 'testing':
+            self.chatWindow = ChatWindow()
+            self.chatWindow.show()
+            self.close()
+        else:
+            QMessageBox.warning(self, 'Error', 'Incorrect Username or Password')
+
 class ChatWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
         self.engine = pyttsx3.init()  # Initialize text-to-speech engine
-        
+        self.recognizer = sr.Recognizer()  # Initialize speech recognizer
+
     def initUI(self):
         # Layouts
         vbox = QVBoxLayout()
@@ -56,21 +95,44 @@ class ChatWindow(QWidget):
         self.sendButton = QPushButton('Send')
         self.sendButton.clicked.connect(self.onSend)
         self.sendButton.setStyleSheet("background-color: #5CACC4; color: white; border-radius: 10px;")
-        
+
         # Speak Button
         self.speakButton = QPushButton('Speak')
         self.speakButton.clicked.connect(self.onSpeak)
         self.speakButton.setStyleSheet("background-color: #5CACC4; color: white; border-radius: 10px;")
 
+        # Listen Button
+        self.listenButton = QPushButton('Listen')
+        self.listenButton.clicked.connect(self.onListen)
+        self.listenButton.setStyleSheet("background-color: #5CACC4; color: white; border-radius: 10px;")
+
+        # Clear History Button
+        self.clearButton = QPushButton('Clear History')
+        self.clearButton.clicked.connect(self.onClear)
+        self.clearButton.setStyleSheet("background-color: rgba(92, 172, 196, 0.5); color: white; border-radius: 10px;")
+        self.clearButton.setFixedSize(150, 30)  # Adjust the size as needed
+
         # Adding widgets to layout
+        topLayout = QHBoxLayout()
+        topLayout.addStretch()
+        topLayout.addWidget(self.clearButton)
+
+        inputLayout = QHBoxLayout()
+        inputLayout.addWidget(self.lineEdit)
+        inputLayout.addWidget(self.sendButton)
+
+        bottomLayout = QHBoxLayout()
+        bottomLayout.addWidget(self.listenButton)
+        bottomLayout.addWidget(self.speakButton)
+
         hbox.addWidget(self.imageLabel)
         hbox.addStretch()
         hbox.addWidget(self.chatHistory, 1)
 
+        vbox.addLayout(topLayout)
         vbox.addLayout(hbox)
-        vbox.addWidget(self.lineEdit)
-        vbox.addWidget(self.sendButton)
-        vbox.addWidget(self.speakButton)
+        vbox.addLayout(inputLayout)
+        vbox.addLayout(bottomLayout)
 
         self.setLayout(vbox)
         self.setWindowTitle('Projekt S.A.N.A.')
@@ -89,6 +151,10 @@ class ChatWindow(QWidget):
             elif "search" in user_input:
                 query = user_input.replace("search", "").strip()
                 response = search_wikipedia(query)
+            elif "play" in user_input:
+                query = user_input.replace("play", "").strip()
+                pywhatkit.playonyt(query)
+                response = f"Playing {query} on YouTube."
             else:
                 app_id = "PHP8VP-Y7P8Y25TTW"  # Replace with your actual API key
                 response = query_wolfram_alpha(user_input, app_id)
@@ -101,8 +167,23 @@ class ChatWindow(QWidget):
             self.engine.say(latest_response)
             self.engine.runAndWait()
 
+    def onListen(self):
+        with sr.Microphone() as source:
+            print("Listening...")
+            audio = self.recognizer.listen(source)
+            try:
+                user_input = self.recognizer.recognize_google(audio)
+                self.lineEdit.setText(user_input)
+            except sr.UnknownValueError:
+                self.chatHistory.append("Sana: Sorry, I did not understand the audio.")
+            except sr.RequestError:
+                self.chatHistory.append("Sana: Could not request results; check your network connection.")
+
+    def onClear(self):
+        self.chatHistory.clear()
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = ChatWindow()
-    ex.show()
+    login = LoginWindow()
+    login.show()
     sys.exit(app.exec_())
