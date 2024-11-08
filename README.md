@@ -1,5 +1,3 @@
-Sure! Below is the updated version of the README with the new introduction, which emphasizes the business use case and integration of Large Language Models (LLMs) with privacy considerations. The installation section has been removed, and the license information has been updated to reflect the **GNU GPL 3.0** license.
-
 ---
 
 # Projekt S.A.N.A. - Chatbot
