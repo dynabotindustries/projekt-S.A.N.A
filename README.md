@@ -1,3 +1,4 @@
+![Dynabot_Industries_mock_logo](https://github.com/user-attachments/assets/e22bead6-1d41-4f0e-90dd-a823a60539bd)
 
 ---
 
