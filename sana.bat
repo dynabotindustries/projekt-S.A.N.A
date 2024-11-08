@@ -22,7 +22,7 @@ if exist %marker_file% (
     python -m pip install --upgrade pip
 
     REM Install required packages
-    pip install PyQt5
+    pip install kivy
     pip install pywhatkit
     pip install wikipedia-api
     pip install wolframalpha
