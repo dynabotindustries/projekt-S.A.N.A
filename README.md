@@ -91,3 +91,7 @@ Here is an example of how **Projekt S.A.N.A.** might be used in a business setti
 **S.A.N.A**: *"The square root of 256 is 16."*
 
 ---
+
+---
+### Installation:
+**Windows**: Download and Extract the Sana.zip file and then run sana.bat(Note: Please make sure you've install Python 3.x on your computer. ;It would take some time to install al the dependencies in the first run and then you'll be good to go!)
