@@ -91,7 +91,21 @@ Here is an example of how **Projekt S.A.N.A.** might be used in a business setti
 **User**: `What is the square root of 256?`  
 **S.A.N.A**: *"The square root of 256 is 16."*
 
+**User**: `play _youtube video_`  
+**S.A.N.A**: *playing _youtube video_ on youtube*
+
+**User**: `close`  
+**S.A.N.A**: *Closing the current tab..*
+
 ---
+## Screenshots:
+![image](https://github.com/user-attachments/assets/7b074e69-093d-4a42-8ebf-0f77c9d4940b)
+![image](https://github.com/user-attachments/assets/4a71b696-ea52-41cb-9701-c89bdc80278f)
+![image](https://github.com/user-attachments/assets/b35cf2ed-7586-4182-acbb-d40362df5e3e)
+![image](https://github.com/user-attachments/assets/1ceb4ecb-7087-4094-ab33-7c9ee9dc2a5d)
+
+
+
 
 ---
 ## Installation:
