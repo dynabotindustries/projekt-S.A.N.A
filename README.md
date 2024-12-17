@@ -110,4 +110,4 @@ Here is an example of how **Projekt S.A.N.A.** might be used in a business setti
 ---
 ## Installation:
 **Windows**: Download and Extract the Sana.zip file from https://github.com/dynabotindustries/projekt-S.A.N.A/releases and then run sana.bat
-***Note***: Please make sure you've install Python 3.x on your computer. ;It would take some time to install al the dependencies in the first run and then you'll be good to go!
+***Note***: Please make sure you've install Python 3.x on your computer. ;It would take some time to install al the dependencies in the first run and then you'll be good to go! :)
